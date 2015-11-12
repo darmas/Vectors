@@ -13,16 +13,20 @@ void setup() {
   //x = width/2;
  // y = height/2;
   diam = 80;
-  vel=new PVector(random(-5,5), random(-5,5));//velx and vely values go here
+  //vel=new PVector(random(-5,5), random(-5,5));//velx and vely values go here
+  vel=PVector.random2D();//a magnitude of the ball in 2D
+  vel.mult(5);//multipling speed  by 5
   //velX = random(-5, 5);
   //velY = random(-5, 5);
+  loc.add(vel);//adding x and y to velocity 
 }
 
 void draw() {
   //draw background to cover previous frame
-  background(0);
+  background(frameCount%360,100,40);
 
   //draw ball
+  noStroke();
   ellipse(loc.x, loc.y, diam, diam);//x now must be written loc.x and so forth 
 
   //add velocity to position
